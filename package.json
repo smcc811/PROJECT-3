@@ -1,5 +1,5 @@
 {
-  "name": "greenwork",
+  "name": "green-work",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smcc811/greenwork.git"
+    "url": "git+https://github.com/smcc811/green-work.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/smcc811/greenwork/issues"
+    "url": "https://github.com/smcc811/green-work/issues"
   },
-  "homepage": "https://github.com/smcc811/greenwork#readme",
+  "homepage": "https://github.com/smcc811/green-work#readme",
   "dependencies": {
     "express": "^4.17.1",
   

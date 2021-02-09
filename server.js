@@ -4,11 +4,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({extended: true }));
 app.use(express.json());
+const path = require("path");
+
 
 
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/greenwork",
+    process.env.MONGODB_URI || "mongodb://localhost/green-work",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
