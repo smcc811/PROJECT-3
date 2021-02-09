@@ -26,11 +26,18 @@ connection.on("connected", () =>{
 connection.on("error", (err) => {
     console.log("mongoose connection error: ", err);
 });
+app.use(express.static("client/build"));
 app.get("/api/config", (req, res) => {
     res.json({ success: true});
 });
 
-app.get("*",(req.res))
+app.get("*",(req, res) => {
+    res.sendFile(path.json(__dirname, "client/build/index.html"));
+});
+
+app.listen(PORT, ()=> {
+    console.log (`Server is running on http://localhost:${PORT}`);
+});
 
 
 
