@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/project-3",
+    process.env.MONGODB_URI || "mongodb://localhost/greenwork",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
