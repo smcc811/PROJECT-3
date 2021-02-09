@@ -5,9 +5,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({extended: tru }));
 app.use(express.json());
 
-app.get("/api/config", (req, res) => {
-    res.json({ success: true});
-});
+
 
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/project-3",
@@ -21,6 +19,18 @@ mongoose.connect(
 );
 
 const connection = mongoose.connection;
+connection.on("connected", () =>{
+    console.log("mongoose successfully connected !" );
+});
+
+connection.on("error", (err) => {
+    console.log("mongoose connection error: ", err);
+});
+app.get("/api/config", (req, res) => {
+    res.json({ success: true});
+});
+
+
 
 
 
