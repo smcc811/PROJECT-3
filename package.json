@@ -25,10 +25,12 @@
   },
   "homepage": "https://github.com/smcc811/green-work#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
-  
     "if-env": "^1.0.4",
-    "mongoose": "^5.11.15"
+    "mongoose": "^5.11.16",
+    "path": "^0.12.7",
+    "router": "^1.3.5"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

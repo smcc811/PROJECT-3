@@ -1,30 +1,39 @@
 const express = require("express");
 const router = express.Router();
-const UserModel = require("../models/user");
+const User = require("../models/user");
 
-let UserController = {
-  find: async (req, res) => {
-    let found = await UserModel.find({ name: req.params.username });
-    res.json(found);
-  },
+router.get("/", (req, res) => {
+  
+    User.find()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
-  all: async (req, res) => {
-    let allUsers = await UserModel.find();
-    res.json(allUsers);
-  },
+router.post("/", (req, res) => {
+  console.log(req.body);
+  User.create(req.body).then((newUser) => {
+    console.log(newUser);
+    res.json(newUser);
+  });
+});
 
-  create: async (req, res) => {
-    let newUser = new UserModel(req.body);
-    let savedUser = await newUser.save();
-    res.json(savedUser);
-  },
+router.put("/:id", (req, res) => {
+  
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((updatedObject) => {
+      res.json(updatedObject);
+    });
+});
 
-  getAllPlants: async (req, res) => {
-    let foundUser = await UserModel.find({
-      name: req.params.username,
-    }).populate("plants");
-    res.json(foundUser);
-  },
-};
+router.delete("/:id", (req, res) => {
+  User.findByIdAndDelete(req.params.id).then((result) => {
+    res.json(result);
+  });
+});
 
-module.exports = UserController;
+module.exports = router;

@@ -4,8 +4,8 @@ const Plant = require("../models/plants");
 
 router.get("/", (req, res) => {
   Plant.find()
-    .then((plant) => {
-      res.json(plant);
+    .then((plants) => {
+      res.json(plants);
     })
     .catch((err) => {
       console.log(err);
@@ -27,7 +27,7 @@ router.get("/:id?", (req, res) => {
 
 //  GET /plant/:type?/:userid
 // gets every plant of a specific type that belongs to one user
-router.get("/plant/:type?/:userid", (req, res) => {
+router.get("/:userid", (req, res) => {
   Plant.find({
     type: req.params.type,
     user: req.params.userid,
